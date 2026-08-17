@@ -1,6 +1,5 @@
-package com.app.jobapplication.Review.dto;
-
-import com.app.jobapplication.Company.entity.CompanyEntity;
+package com.jobapplication.reviewms.Review.dto;
+// import com.app.jobapplication.Company.entity.CompanyEntity;
 
 import lombok.Data;
 
@@ -9,5 +8,5 @@ public class ReviewRequest {
     private String title;
     private String description;
     private double rating;
-    private CompanyEntity company;
+    // private CompanyEntity company;
 }

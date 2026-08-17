@@ -1,16 +1,20 @@
-package com.app.jobapplication.Review.controller;
-
+package com.jobapplication.reviewms.Review.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.jobapplication.reviewms.Review.dto.ReviewRequest;
+import com.jobapplication.reviewms.Review.dto.ReviewResponse;
+import com.jobapplication.reviewms.Review.service.Impl.ReviewServiceImpl;
+
 import java.util.List;
 
-import com.app.jobapplication.Review.dto.ReviewRequest;
-import com.app.jobapplication.Review.dto.ReviewResponse;
-import com.app.jobapplication.Review.service.Impl.ReviewServiceImpl;
+// import com.app.jobapplication.Review.dto.ReviewRequest;
+// import com.app.jobapplication.Review.dto.ReviewResponse;
+// import com.app.jobapplication.Review.service.Impl.ReviewServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

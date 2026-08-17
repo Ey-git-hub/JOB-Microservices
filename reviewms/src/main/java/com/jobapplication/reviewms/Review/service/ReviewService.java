@@ -1,7 +1,10 @@
-package com.app.jobapplication.Review.service;
+package com.jobapplication.reviewms.Review.service;
 
-import com.app.jobapplication.Review.dto.*;
+// import com.app.jobapplication.Review.dto.*;
 import java.util.List;
+
+import com.jobapplication.reviewms.Review.dto.ReviewRequest;
+import com.jobapplication.reviewms.Review.dto.ReviewResponse;
 
 public interface ReviewService {
      List<ReviewResponse> getAllReviews(Long companyId);

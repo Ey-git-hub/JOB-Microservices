@@ -1,10 +1,9 @@
-package com.app.jobapplication.Review.entity;
-
+package com.jobapplication.reviewms.Review.entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
 
-import com.app.jobapplication.Company.entity.CompanyEntity;
+// import com.app.jobapplication.Company.entity.CompanyEntity;
 
 import jakarta.persistence.Entity;
 import lombok.*;
@@ -20,7 +19,7 @@ public class ReviewEntity {
     private String title;
     private String description;
     private double rating;
-    @ManyToOne
-    private CompanyEntity company;
+    // @ManyToOne
+    // private CompanyEntity company;
   
 }

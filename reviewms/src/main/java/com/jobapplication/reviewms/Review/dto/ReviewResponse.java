@@ -1,5 +1,7 @@
-package com.app.jobapplication.Review.dto;
-import com.app.jobapplication.Review.entity.ReviewEntity;
+package com.jobapplication.reviewms.Review.dto;
+import com.jobapplication.reviewms.Review.entity.ReviewEntity;
+
+// import com.app.jobapplication.Review.entity.ReviewEntity;
 import lombok.*;
 
 @Data
@@ -9,7 +11,6 @@ public class ReviewResponse {
     private String title;
     private String description;
     private double rating;
-   
 
     public static ReviewResponse fromEntity(ReviewEntity reviewEntity) {
         ReviewResponse response = new ReviewResponse();
