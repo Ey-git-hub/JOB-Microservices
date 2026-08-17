@@ -19,7 +19,6 @@ public class ReviewEntity {
     private String title;
     private String description;
     private double rating;
-    // @ManyToOne
-    // private CompanyEntity company;
+    private Long companyId;
   
 }
