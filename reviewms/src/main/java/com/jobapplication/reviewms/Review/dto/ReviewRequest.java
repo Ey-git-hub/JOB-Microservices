@@ -8,5 +8,5 @@ public class ReviewRequest {
     private String title;
     private String description;
     private double rating;
-    // private CompanyEntity company;
+    private Long companyId;
 }
