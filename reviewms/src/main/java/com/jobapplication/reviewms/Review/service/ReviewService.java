@@ -5,11 +5,12 @@ import java.util.List;
 
 import com.jobapplication.reviewms.Review.dto.ReviewRequest;
 import com.jobapplication.reviewms.Review.dto.ReviewResponse;
+import com.jobapplication.reviewms.Review.entity.ReviewEntity;
 
 public interface ReviewService {
      List<ReviewResponse> getAllReviews(Long companyId);
-     boolean updateReview(Long reviewId,Long companyId,ReviewRequest reviewRequest);
-     boolean createReview(ReviewRequest reviewRequest,Long id);
-     boolean deleteReview(Long companyId,Long reviewId);
-     ReviewResponse getReviewById(Long companyId,Long reviewId);
+     boolean updateReview(Long reviewId,ReviewRequest reviewRequest);
+     boolean createReview(ReviewRequest reviewRequest,Long companyId);
+     boolean deleteReview(Long reviewId);
+     ReviewEntity getReviewById(Long reviewId);
 }
