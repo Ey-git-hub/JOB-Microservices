@@ -1,6 +1,8 @@
-package com.app.jobapplication.Job.dto;
+package com.jobapplication.jobms.Job.dto;
 
-import com.app.jobapplication.Job.entity.JobEntity;
+import com.jobapplication.jobms.Job.entity.JobEntity;
+
+// import com.app.jobapplication.Job.entity.JobEntity;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.app.jobapplication.Job.service.Impl;
+package com.jobapplication.jobms.Job.service.Impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,11 +6,17 @@ import java.util.stream.Collectors;
 // import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
-import com.app.jobapplication.Job.dto.JobRequest;
-import com.app.jobapplication.Job.dto.JobResponse;
-import com.app.jobapplication.Job.entity.JobEntity;
-import com.app.jobapplication.Job.repository.JobRepository;
-import com.app.jobapplication.Job.service.JobService;
+import com.jobapplication.jobms.Job.dto.JobRequest;
+import com.jobapplication.jobms.Job.dto.JobResponse;
+import com.jobapplication.jobms.Job.entity.JobEntity;
+import com.jobapplication.jobms.Job.repository.JobRepository;
+import com.jobapplication.jobms.Job.service.JobService;
+
+// import com.app.jobapplication.Job.dto.JobRequest;
+// import com.app.jobapplication.Job.dto.JobResponse;
+// import com.app.jobapplication.Job.entity.JobEntity;
+// import com.app.jobapplication.Job.repository.JobRepository;
+// import com.app.jobapplication.Job.service.JobService;
 
 import lombok.RequiredArgsConstructor;
 

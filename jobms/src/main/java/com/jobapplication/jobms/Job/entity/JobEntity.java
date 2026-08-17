@@ -1,6 +1,6 @@
-package com.app.jobapplication.Job.entity;
+package com.jobapplication.jobms.Job.entity;
 
-import com.app.jobapplication.Company.entity.CompanyEntity;
+// import com.app.jobapplication.Company.entity.CompanyEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +23,6 @@ public class JobEntity {
     private String minSalary;
     private String maxSalary;
     private String location;
-    @ManyToOne
-    private CompanyEntity company;
+    // @ManyToOne
+    // private CompanyEntity company;
 }

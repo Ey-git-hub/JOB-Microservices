@@ -1,4 +1,4 @@
-package com.app.jobapplication.Job.dto;
+package com.jobapplication.jobms.Job.dto;
 
 import lombok.Data;
 

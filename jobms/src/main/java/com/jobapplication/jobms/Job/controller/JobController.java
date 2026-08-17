@@ -1,4 +1,4 @@
-package com.app.jobapplication.Job.controller;
+package com.jobapplication.jobms.Job.controller;
 
 import java.util.List;
 
@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.jobapplication.Job.dto.JobRequest;
-import com.app.jobapplication.Job.dto.JobResponse;
-import com.app.jobapplication.Job.service.JobService;
+import com.jobapplication.jobms.Job.dto.JobRequest;
+import com.jobapplication.jobms.Job.dto.JobResponse;
+import com.jobapplication.jobms.Job.service.JobService;
+
+// import com.app.jobapplication.Job.dto.JobRequest;
+// import com.app.jobapplication.Job.dto.JobResponse;
+// import com.app.jobapplication.Job.service.JobService;
 
 import lombok.RequiredArgsConstructor;
 
