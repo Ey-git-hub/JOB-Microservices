@@ -11,81 +11,59 @@ import com.jobapplication.reviewms.Review.entity.ReviewEntity;
 import com.jobapplication.reviewms.Review.repository.ReviewRepository;
 import com.jobapplication.reviewms.Review.service.ReviewService;
 
-// import com.app.jobapplication.Company.dto.CompanyResponse;
-// import com.app.jobapplication.Company.entity.CompanyEntity;
-// import com.app.jobapplication.Company.service.Impl.CompanyServiceImpl;
-// import com.app.jobapplication.Review.dto.ReviewRequest;
-// import com.app.jobapplication.Review.dto.ReviewResponse;
-// import com.app.jobapplication.Review.entity.ReviewEntity;
-// import com.app.jobapplication.Review.repository.ReviewRepository;
-// import com.app.jobapplication.Review.service.ReviewService;
-// import java.util.Collection
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class ReviewServiceImpl implements ReviewService {
    private final ReviewRepository reviewRepository;
-   // private final companyServiceImpl companyService;
  @Override
  public List<ReviewResponse> getAllReviews(Long companyId){
-  return reviewRepository.findByCompanyId(companyId);
+   List<ReviewResponse> reviews=reviewRepository.findBycompanyId(companyId);
+  return reviews;
  }
 @Override
-public boolean createReview(ReviewRequest reviewRequest, Long id) {
-   // CompanyResponse company=companyService.getCompanyById(id);
-   // if(company != null){
-   // ReviewEntity review= new ReviewEntity();
-   // review.setTitle(reviewRequest.getTitle());
-   // review.setDescription(reviewRequest.getDescription());
-   // review.setRating(reviewRequest.getRating());
-   // reviewRepository.save(review);
-   // return true;
-   // }
+public boolean createReview(ReviewRequest reviewRequest, Long companyId) {
+   if(companyId != null && reviewRequest!=null ){
+   ReviewEntity review= new ReviewEntity();
+   review.setTitle(reviewRequest.getTitle());
+   review.setDescription(reviewRequest.getDescription());
+   review.setRating(reviewRequest.getRating());
+   review.setCompanyId(reviewRequest.getCompanyId());
+   reviewRepository.save(review);
+   return true;
+   }
    return false;
    
 }
 
-public ReviewResponse getReviewById(Long companyId,Long reviewId){
-   List<ReviewResponse> reviews =getAllReviews(companyId);
-           return reviews.stream().filter(review-> review.getId().equals(reviewId))
-           .findFirst()
-           .orElse(null);
+public ReviewEntity getReviewById(Long reviewId){
+   return reviewRepository.findById(reviewId).orElse(null);
 
 }
 @Override
-public boolean updateReview(Long reviewId,Long companyId,ReviewRequest reviewRequest) {
-   Optional<ReviewEntity> reviewOptional=reviewRepository.findById(reviewId);
-   // if(companyService.getCompanyById(companyId) != null){
-   //     if (reviewOptional.isPresent()) {
-   //        ReviewEntity review = reviewOptional.get();
-   //        // ensure the review belongs to the given company
-   //        if (review.getCompany() != null && review.getCompany().getId() != null
-   //              && review.getCompany().getId().equals(companyId)) {
-   //           review.setTitle(reviewRequest.getTitle());
-   //           review.setDescription(reviewRequest.getDescription());
-   //           review.setRating(reviewRequest.getRating());
-   //           reviewRepository.save(review);
-   //           return true;
-   //        }
-   //     }
-   //  }
+public boolean updateReview(Long reviewId,ReviewRequest reviewRequest) {
+   ReviewEntity existingReview=reviewRepository.findById(reviewId).orElse(null);
+   if(reviewId!= null){
+       existingReview.setTitle(reviewRequest.getTitle());
+       existingReview.setRating(reviewRequest.getRating());
+       existingReview.setDescription(reviewRequest.getDescription());
+       existingReview.setCompanyId(reviewRequest.getCompanyId());
+
+       reviewRepository.save(existingReview);
+       return true;
+    }
     return false;
  }
 @Override
-public boolean deleteReview(Long companyId, Long reviewId) {
+public boolean deleteReview(Long reviewId) {
    //  // ensure company exists
-   //  if (companyService.getCompanyById(companyId) == null) {
-   //     return false;
-   //  }
-   //  Optional<ReviewEntity> reviewOptional = reviewRepository.findById(reviewId);
-   //  if (reviewOptional.isPresent()) {
-   //     ReviewEntity review = reviewOptional.get();
-   //     if (review.getCompany() != null && review.getCompany().getId() != null
-   //           && review.getCompany().getId().equals(companyId)) {
-   //        reviewRepository.delete(review);
-   //        return true;
-   //     }
-   //  }
+    ReviewEntity review =reviewRepository.findById(reviewId).orElse(null);
+    if(review !=null){
+      reviewRepository.delete(review);
+      return true;
+    }
     return false;
-}}
+}
+
+}
