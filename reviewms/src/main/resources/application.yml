@@ -2,13 +2,12 @@ spring:
   application:
     name: reviewms
   config:
-    import: "file:./jobapplication/.env[.properties]" # Tells Spring Boot to import the .env file from the root directory
+    import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
 
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-  
+    url: ${RMS_DATABASE_URL}
+    username: ${RMS_DATABASE_USERNAME}
+    password: ${RMS_DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,3 +17,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8083
