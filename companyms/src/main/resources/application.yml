@@ -1,14 +1,14 @@
 spring:
   application:
     name: companyms
-
   config:
-    import: "file:./jobapplication/.env[.properties]" # Tells Spring Boot to import the .env file from the root directory
+    import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
 
+  
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: ${CMS_DATABASE_URL}
+    username: ${CMS_DATABASE_USERNAME}
+    password: ${CMS_DATABASE_PASSWORD}
   
   jpa:
     hibernate:
@@ -19,3 +19,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8082
+
