@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+// import jakarta.persistence.ManyToOne;
 // import jakarta.persistence.OneToMany;    
 import lombok.*;
 @Getter
@@ -23,6 +23,5 @@ public class JobEntity {
     private String minSalary;
     private String maxSalary;
     private String location;
-    // @ManyToOne
-    // private CompanyEntity company;
+    private Long companyId;
 }
