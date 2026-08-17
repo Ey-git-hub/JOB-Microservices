@@ -4,13 +4,13 @@ import java.util.List;
 
 // import com.app.jobapplication.Job.entity.JobEntity;
 // import com.app.jobapplication.Review.entity.ReviewEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+// import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+// import jakarta.persistence.OneToMany;
 import lombok.*;
 
 
@@ -25,11 +25,12 @@ public class Company {
     private Long id;
     private String name;
     private String location;
+    private String description;
     // @JsonIgnore
     // @OneToMany(mappedBy = "company")
     // // private List<JobEntity> jobs;
     // @JsonIgnore
     // @OneToMany(mappedBy = "company")
     // // private List<ReviewEntity> reviews;
-    private String description;
+    
 }
