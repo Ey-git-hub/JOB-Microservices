@@ -14,6 +14,8 @@ import com.jobapplication.reviewms.Review.entity.ReviewEntity;
 
 public interface ReviewRepository extends JpaRepository<ReviewEntity,Long>{
 
-    List<ReviewResponse> findByCompanyId(Long id);
+    // List<ReviewResponse> findByCompanyId(Long companyId);
+
+    List<ReviewResponse> findBycompanyId(Long companyId);
     
 }
