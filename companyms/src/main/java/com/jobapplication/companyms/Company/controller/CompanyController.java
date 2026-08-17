@@ -1,14 +1,19 @@
-package com.app.jobapplication.Company.controller;
+package com.jobapplication.companyms.Company.controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.jobapplication.companyms.Company.dto.CompanyRequest;
+import com.jobapplication.companyms.Company.dto.CompanyResponse;
+import com.jobapplication.companyms.Company.service.Impl.CompanyServiceImpl;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.app.jobapplication.Company.dto.CompanyRequest;
-import com.app.jobapplication.Company.service.Impl.CompanyServiceImpl;
-import com.app.jobapplication.Company.dto.CompanyResponse;
+// import com.app.jobapplication.Company.dto.CompanyRequest;
+// import com.app.jobapplication.Company.service.Impl.CompanyServiceImpl;
+// import com.app.jobapplication.Company.dto.CompanyResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;

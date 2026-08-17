@@ -1,7 +1,9 @@
-package com.app.jobapplication.Company.repository;
+package com.jobapplication.companyms.Company.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.app.jobapplication.Company.entity.CompanyEntity;
+// import com.app.jobapplication.Company.entity.CompanyEntity;
 
-public interface CompanyRepository extends JpaRepository<CompanyEntity,Long> {
+import com.jobapplication.companyms.Company.entity.Company;
+
+public interface CompanyRepository extends JpaRepository<Company,Long> {
     
 }

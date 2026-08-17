@@ -1,7 +1,10 @@
-package com.app.jobapplication.Company.service;
-import com.app.jobapplication.Company.dto.CompanyResponse;
+package com.jobapplication.companyms.Company.service;
+// import com.app.jobapplication.Company.dto.CompanyResponse;
 import java.util.List;
-import com.app.jobapplication.Company.dto.CompanyRequest;
+// import com.app.jobapplication.Company.dto.CompanyRequest;
+
+import com.jobapplication.companyms.Company.dto.CompanyRequest;
+import com.jobapplication.companyms.Company.dto.CompanyResponse;
 
 public interface CompanyService {
     List<CompanyResponse> getAllCompanies();

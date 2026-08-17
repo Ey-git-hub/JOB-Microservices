@@ -1,15 +1,22 @@
-package com.app.jobapplication.Company.service.Impl;
+package com.jobapplication.companyms.Company.service.Impl;
 
 import org.springframework.stereotype.Service;
-import com.app.jobapplication.Company.repository.CompanyRepository;
+
+import com.jobapplication.companyms.Company.dto.CompanyRequest;
+import com.jobapplication.companyms.Company.dto.CompanyResponse;
+import com.jobapplication.companyms.Company.entity.Company;
+import com.jobapplication.companyms.Company.repository.CompanyRepository;
+import com.jobapplication.companyms.Company.service.CompanyService;
+
+// import com.app.jobapplication.Company.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
-import com.app.jobapplication.Company.service.CompanyService;
+// import com.app.jobapplication.Company.service.CompanyService;
 import java.util.List;
 
 // import com.app.jobapplication.Company.entity.Company;
-import com.app.jobapplication.Company.entity.CompanyEntity;
-import com.app.jobapplication.Company.dto.CompanyRequest;
-import com.app.jobapplication.Company.dto.CompanyResponse;
+// import com.app.jobapplication.Company.entity.CompanyEntity;
+// import com.app.jobapplication.Company.dto.CompanyRequest;
+// import com.app.jobapplication.Company.dto.CompanyResponse;
 // import com.app.jobapplication.Job.dto.JobRequest;
 // import com.app.jobapplication.Job.entity.JobEntity;
 // import org.springframework.transaction.annotation.Transactional;
@@ -27,9 +34,9 @@ public class CompanyServiceImpl implements CompanyService {
     }
     @Override
     public boolean updateCompany(Long id,CompanyRequest companyRequest) {
-        Optional<CompanyEntity> companyOptional= companyRepository.findById(id);
+        Optional<Company> companyOptional= companyRepository.findById(id);
         if(companyOptional.isPresent()){
-            CompanyEntity existingCompany = companyOptional.get();
+            Company existingCompany = companyOptional.get();
         existingCompany.setName(companyRequest.getName());
         existingCompany.setLocation(companyRequest.getLocation());
         existingCompany.setDescription(companyRequest.getDescription());
@@ -43,7 +50,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
     @Override
     public Void createCompany(CompanyRequest companyRequest) {
-        CompanyEntity companyEntity = new CompanyEntity();
+        Company companyEntity = new Company();
                 companyEntity.setName(companyRequest.getName());
                 companyEntity.setLocation(companyRequest.getLocation());
                 companyEntity.setDescription(companyRequest.getDescription());

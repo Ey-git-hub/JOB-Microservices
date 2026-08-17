@@ -1,7 +1,7 @@
-package com.app.jobapplication.Company.dto;
+package com.jobapplication.companyms.Company.dto;
 
 import java.util.List;
-import com.app.jobapplication.Job.dto.JobRequest;
+// import com.app.jobapplication.Job.dto.JobRequest;
 import lombok.Data;
 
 @Data
@@ -9,5 +9,5 @@ public class CompanyRequest {
     private String name;
     private String location;
     private String description;
-    private List<JobRequest> jobs;
+    // private List<JobRequest> jobs;
 }

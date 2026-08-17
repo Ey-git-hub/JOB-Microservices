@@ -1,9 +1,9 @@
-package com.app.jobapplication.Company.entity;
+package com.jobapplication.companyms.Company.entity;
 
 import java.util.List;
 
-import com.app.jobapplication.Job.entity.JobEntity;
-import com.app.jobapplication.Review.entity.ReviewEntity;
+// import com.app.jobapplication.Job.entity.JobEntity;
+// import com.app.jobapplication.Review.entity.ReviewEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -19,17 +19,17 @@ import lombok.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyEntity {
+public class Company {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String location;
-    @JsonIgnore
-    @OneToMany(mappedBy = "company")
-    private List<JobEntity> jobs;
-    @JsonIgnore
-    @OneToMany(mappedBy = "company")
-    private List<ReviewEntity> reviews;
+    // @JsonIgnore
+    // @OneToMany(mappedBy = "company")
+    // // private List<JobEntity> jobs;
+    // @JsonIgnore
+    // @OneToMany(mappedBy = "company")
+    // // private List<ReviewEntity> reviews;
     private String description;
 }
