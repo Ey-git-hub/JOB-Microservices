@@ -8,5 +8,6 @@ public class JobRequest {
     private String description;
     private String minSalary;
     private String maxSalary;
-    private String location;      
+    private String location; 
+    private Long companyId;     
 }
