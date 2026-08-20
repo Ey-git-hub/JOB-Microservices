@@ -19,3 +19,9 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8082
+
+  rabbitmq:
+    host: ${RMS_RABBITMQ_HOST}
+    port: ${RMS_RABBITMQ_PORT}
+    username: ${RMS_RABBITMQ_USERNAME}
+    password: ${RMS_RABBITMQ_PASSWORD}
