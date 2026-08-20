@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.jobapplication.companyms.Company.dto.CompanyRequest;
 import com.jobapplication.companyms.Company.dto.CompanyResponse;
+import com.jobapplication.companyms.Company.dto.ReviewMessage;
 import com.jobapplication.companyms.Company.entity.Company;
 import com.jobapplication.companyms.Company.repository.CompanyRepository;
 import com.jobapplication.companyms.Company.service.CompanyService;
@@ -69,5 +70,9 @@ public class CompanyServiceImpl implements CompanyService {
             return true;
         }
         return false;
+    }
+    @Override
+    public void updateCompanyRating(ReviewMessage message) {
+        
     }}
 
