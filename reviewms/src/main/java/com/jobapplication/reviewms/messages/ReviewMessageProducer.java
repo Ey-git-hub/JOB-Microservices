@@ -1,13 +1,14 @@
 package com.jobapplication.reviewms.messages;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Service;
 
 import com.jobapplication.reviewms.Review.dto.ReviewMessage;
 import com.jobapplication.reviewms.Review.entity.ReviewEntity;
 
 import lombok.RequiredArgsConstructor;
 
-
+@Service
 @RequiredArgsConstructor
 public class ReviewMessageProducer {
     private final RabbitTemplate rabbitTemplate;
