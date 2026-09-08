@@ -16,11 +16,11 @@ export default function SignInPage(){
                 <CardContent>
                     <form>
                         <Label className="font-mono mb-1" >Name</Label>
-                        <Input className="mb-2"name="name" type="text" placeholder="eyob tadesse"/>
-                        <Label className="font-mono">Email</Label>
-                        <Input name="Email" type="email" placeholder="eyob@gmail.com" autoComplete="off"/>
-                        <Label className="font-mono">Password</Label>
-                        <Input name="Password" type="Password" autoComplete="off" minLength={8}/>
+                        <Input className="mb-2" name="name" type="text" placeholder="eyob tadesse"/>
+                        <Label className="font-mono mb-1">Email</Label>
+                        <Input className="mb-2" name="Email" type="email" placeholder="eyob@gmail.com" autoComplete="off"/>
+                        <Label className="font-mono mb-1">Password</Label>
+                        <Input className="mb-2" name="Password" type="Password" autoComplete="off" minLength={8}/>
                         <Link href="/dashboard">
                         <Button className="font-mono" type="submit">Sign Up</Button>
                         </Link>
