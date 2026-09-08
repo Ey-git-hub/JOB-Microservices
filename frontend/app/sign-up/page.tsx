@@ -13,7 +13,7 @@ export default function SignInPage(){
             <div className="w-1/2 flex items-center justify-center">
             <Card className="w-1/2 shadow-2xl">
                 <CardHeader>
-                    <CardTitle className="font-mono">Sign <Up></Up></CardTitle>
+                    <CardTitle className="font-mono">Sign Up</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form>
