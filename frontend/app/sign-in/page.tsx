@@ -11,18 +11,18 @@ export default function SignInPage(){
             <div className="w-1/2 flex items-center justify-center">
             <Card className="w-1/2 shadow-2xl">
                 <CardHeader>
-                    <CardTitle>Sign In</CardTitle>
+                    <CardTitle className="font-mono">Sign In</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form>
-                        <Label>Name</Label>
-                        <Input name="name" type="text" placeholder="eyob tadesse"/>
-                        <Label>Email</Label>
+                        <Label className="font-mono mb-1" >Name</Label>
+                        <Input className="mb-2"name="name" type="text" placeholder="eyob tadesse"/>
+                        <Label className="font-mono">Email</Label>
                         <Input name="Email" type="email" placeholder="eyob@gmail.com" autoComplete="off"/>
-                        <Label>Password</Label>
+                        <Label className="font-mono">Password</Label>
                         <Input name="Password" type="Password" autoComplete="off" minLength={8}/>
                         <Link href="/dashboard">
-                        <Button type="submit">Sign In</Button>
+                        <Button className="font-mono" type="submit">Sign Up</Button>
                         </Link>
 
                     </form>
