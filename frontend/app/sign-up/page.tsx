@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function SignInPage(){
     return(
-        <div className="flex h-screen w-screen ">
+        <div className="flex h-screen w-screen">
             <div className="dark:bg-black w-1/2 flex items-center justify-center">
             <Image className="shadow-3xl round-md"  src="/logo.jpg" alt={"job application logo"} width={300} height={300}/>
             </div>
