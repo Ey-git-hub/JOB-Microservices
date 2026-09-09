@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function SignInPage(){
     return(
         <div className="flex h-screen w-screen ">
-            <div className="w-1/2 bg-blue-500 flex items-center justify-center">
+            <div className="dark:bg-black w-1/2 flex items-center justify-center">
             <Image className="shadow-3xl round-md"  src="/logo.jpg" alt={"job application logo"} width={300} height={300}/>
             </div>
             <div className="w-screen flex items-center justify-center">
