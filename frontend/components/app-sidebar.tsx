@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { FishingRodIcon, Home, Network, Search } from "lucide-react";
+import { FishingRodIcon, Folder, Home, Network, Search, UserRound } from "lucide-react";
 
 export function AppSidebar() {
   return (
@@ -20,7 +20,7 @@ export function AppSidebar() {
         <SidebarGroup>
             <SidebarGroupLabel>Job Application</SidebarGroupLabel>
         <SidebarGroupContent>
-            <SidebarMenu className="gap-3">
+            <SidebarMenu className="gap-3 mt-5">
                  
                 <SidebarMenuItem>
                 <SidebarMenuButton className="flex flex-col-1 ">
@@ -32,14 +32,15 @@ export function AppSidebar() {
                     <Search></Search><a href="/sign-up"><span>FIND JOBS</span></a>  
                 </SidebarMenuButton>
                 </SidebarMenuItem>  
-                <SidebarMenuItem>
-                <SidebarMenuButton className="flex flex-col-1 ">
-                    <a href="/sign-up"><span>Dashboard</span></a>  
-                </SidebarMenuButton>
-                </SidebarMenuItem> 
+               
                 <SidebarMenuItem>
                 <SidebarMenuButton className="flex flex-col-1 ">
                     <Network></Network><a href="/sign-up"><span>MY NETWORK</span></a>  
+                </SidebarMenuButton>
+                </SidebarMenuItem> 
+                 <SidebarMenuItem>
+                <SidebarMenuButton className="flex flex-col-1 ">
+                    <UserRound></UserRound><a href="/sign-up"><span>MY PORTFOLIO</span></a>  
                 </SidebarMenuButton>
                 </SidebarMenuItem> 
             </SidebarMenu>
