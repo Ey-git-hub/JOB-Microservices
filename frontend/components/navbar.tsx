@@ -35,11 +35,11 @@ export default async function Navbar() {
           </>
         ) : (
           <>
-            <Link href="/api/auth/signin">
+            {/* <Link href="/api/auth/signin">
               <Button className="hover:bg-blue-300">Login</Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button>SignUp</Button>
+            </Link> */}
+            <Link href="/sign-in">
+              <Button>SignIn</Button>
             </Link>
           </>
         )}
