@@ -1,27 +1,44 @@
-import { auth } from "@/lib/auth/auth"
-import { NextResponse } from "next/server"
+import { auth } from "@/lib/auth/auth";
+import { NextResponse } from "next/server";
 
-const roleRoutes: Record<string, string> = {
+// Map each dashboard path prefix to the required Keycloak realm role
+const roleRouteMap: Record<string, string> = {
   "/dashboard/admin": "admin",
-  "/dashboard/company-manager": "company_manager",
   "/dashboard/user": "user",
-}
+  "/dashboard/Company-manager": "company-manager",
+};
 
 export default auth((req) => {
-  const path = req.nextUrl.pathname
-  const requiredRole = Object.entries(roleRoutes).find(([prefix]) =>
-    path.startsWith(prefix)
-  )?.[1]
+  const { pathname } = req.nextUrl;
 
+  // 1. If not authenticated, redirect to sign-in
   if (!req.auth) {
-    return NextResponse.redirect(new URL("/login", req.url))
+    const signInUrl = new URL("/api/auth/signin", req.nextUrl.origin);
+    signInUrl.searchParams.set("callbackUrl", pathname);
+    return NextResponse.redirect(signInUrl);
   }
 
-  if (requiredRole && !req.auth.user.roles?.includes(requiredRole)) {
-    return NextResponse.redirect(new URL("/unauthorized", req.url))
+  // 2. Find the matching role requirement for this route
+  const requiredRole = Object.entries(roleRouteMap).find(([prefix]) =>
+    pathname.startsWith(prefix)
+  )?.[1];
+
+  if (requiredRole) {
+    const userRoles: string[] = req.auth.user?.roles ?? [];
+
+    if (!userRoles.includes(requiredRole)) {
+      // User is authenticated but lacks the required role
+      return NextResponse.redirect(
+        new URL("/unauthorized", req.nextUrl.origin)
+      );
+    }
   }
-})
+
+  // 3. Authorized — continue
+  return NextResponse.next();
+});
 
 export const config = {
   matcher: ["/dashboard/:path*"],
-}
+};
+
