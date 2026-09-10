@@ -15,7 +15,7 @@ import { FishingRodIcon, Folder, Home, Network, Search, UserRound } from "lucide
 
 export function AppSidebar() {
   return (
-    <Sidebar className="shadow-2xl font-mono  rounded-md rounded-r-2xl overflow-hidden border-r">
+    <Sidebar className="shadow-2xl font-mono  rounded-r-2xl overflow-hidden border-r mt-20">
       <SidebarContent>
         <SidebarGroup>
             <SidebarGroupLabel>Job Application</SidebarGroupLabel>
