@@ -9,9 +9,9 @@ export default async function AdminDashboard() {
       <p className="mt-4 text-slate-600">
         Welcome, <span className="font-semibold">{session?.user?.name}</span>
       </p>
-      <div className="mt-6 rounded-lg border p-4 bg-slate-50">
-        <h2 className="text-lg font-semibold">Your Roles</h2>
-        <div className="mt-2 flex gap-2">
+      {/* <div className="mt-6 rounded-lg border p-4 bg-slate-50"> */}
+        {/* <h2 className="text-lg font-semibold">Your Roles</h2> */}
+        {/* <div className="mt-2 flex gap-2">
           {session?.user?.roles?.map((role) => (
             <span
               key={role}
@@ -20,8 +20,8 @@ export default async function AdminDashboard() {
               {role}
             </span>
           ))}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }
