@@ -1,1 +1,3 @@
-export { GET, POST } from "@/lib/auth/auth" // adjust import path to wherever handlers is exported
+import { handlers } from "@/lib/auth/auth";
+
+export const { GET, POST } = handlers;
