@@ -1,0 +1,1 @@
+export { GET, POST } from "@/lib/auth/auth" // adjust import path to wherever handlers is exported
