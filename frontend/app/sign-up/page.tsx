@@ -24,9 +24,9 @@ export default function SignInPage(){
                         <Input className="mb-2" name="Email" type="email" placeholder="eyob@gmail.com" autoComplete="off"/>
                         <Label className="font-mono mb-1">Password</Label>
                         <Input className="mb-2" name="Password" type="Password" autoComplete="off" minLength={8}/>
-                        <div className="flex bg-black items-center justify-center rounded-md ">
+                        <div className="flex bg-black w-full items-center space-y-4 justify-center rounded-md ">
                         <Link href="/dashboard">
-                        <Button className="flex font-mono justify-stretch" type="submit">Sign Up</Button>
+                        <Button className="flex font-mono w-full" type="submit">Sign Up</Button>
                         </Link></div>
 
                     </form>
