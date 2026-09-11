@@ -1,28 +1,46 @@
-import { auth } from "@/lib/auth/auth";
+// app/dashboard/companies/page.tsx
+"use client";
+import { useState } from "react";
 
-export default async function CompanyManagerDashboard() {
-  const session = await auth();
+const dummyCompanies = [
+  { id: 1, name: "Nexora Technologies", status: "active", joined: "2026-03-12" },
+  { id: 2, name: "Habesha Logistics", status: "pending", joined: "2026-05-01" },
+  { id: 3, name: "Zenith Retail Group", status: "flagged", joined: "2026-06-20" },
+];
+
+export default function CompaniesPage() {
+  const [search, setSearch] = useState("");
+  const filtered = dummyCompanies.filter((c) =>
+    c.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="font-mono">
-      <h1 className="text-3xl font-bold">Company Manager Dashboard</h1>
-      <p className="mt-4 text-slate-600">
-        Welcome, <span className="font-semibold">{session?.user?.name}</span>
-      </p>
-      {/* <div className="mt-6 rounded-lg border p-4 bg-slate-50"> */}
-        {/* <h2 className="text-lg font-semibold">Your Roles</h2>
-        <div className="mt-2 flex gap-2">
-          {session?.user?.roles?.map((role) => (
-            <span
-              key={role}
-              className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800"
-            >
-              {role}
-            </span>
+    <div>
+      <h1 className="text-xl font-medium mb-4">Companies</h1>
+      <input
+        placeholder="Search companies..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="mb-4 border rounded px-3 py-2 text-sm w-64"
+      />
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="text-left border-b">
+            <th className="py-2">Name</th>
+            <th className="py-2">Status</th>
+            <th className="py-2">Joined</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map((c) => (
+            <tr key={c.id} className="border-b">
+              <td className="py-2">{c.name}</td>
+              <td className="py-2 capitalize">{c.status}</td>
+              <td className="py-2">{c.joined}</td>
+            </tr>
           ))}
-        </div> */}
-      {/* </div> */}
+        </tbody>
+      </table>
     </div>
   );
 }
-
