@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { auth } from "@/lib/auth/auth";
-import { Bell, Search } from "lucide-react";
+import { Bell, Plus, Search } from "lucide-react";
 
 export default async function AdminDashboard() {
   const session = await auth();
@@ -14,7 +14,7 @@ export default async function AdminDashboard() {
     <div className="font-mono">
       <div className="flex items-center  justify-between ">
         <div>
-               <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+               <h1 className="text-3xl font-bold">Super Admin Dashboard</h1>
                 <p className="mt-4 text-slate-600">
                 Welcome, <span className="font-semibold">{session?.user?.name}</span>
                 </p> 
@@ -46,17 +46,24 @@ export default async function AdminDashboard() {
               <p className="font-bold text-3xl text-white">3</p>
             </div>
             <div className="grid bg-[#121215] h-75 p-5 rounded-xl col-span-3 gap-y-1 ">
-            <span className="text-slate-400 font-medium">Pending company verification</span>
+            <div className="flex items-center justify-between">
+              <span className="text-slate-400 font-medium">Pending company verification</span>
+              <Button>View All</Button>
+            </div>
             <Separator/>
-            <span className="text-slate-400 font-medium ">Nexora Technologies</span>
+            <span className="text-slate-400 font-medium ">koket Technologies</span>
              <Separator/>
-             <span className="text-slate-400 font-medium ">Pending company verification</span>
+             <span className="text-slate-400 font-medium ">messi solutions</span>
             <Separator/>
-            <span className="text-slate-400 font-medium ">Nexora Technologies</span>
+            <span className="text-slate-400 font-medium ">tade tech</span>
             </div>
-            <div className="bg-[#121215] rounded-xl">
-
+            <div className="grid p-5 bg-[#121215] rounded-xl">
+           <span className="text-white">Quick Actions</span>
+           <Button><Plus/> Add new Company </Button>
+           <Button><Plus/> Manage Users </Button>
+           <Button><Plus/> Add new Company </Button>
             </div>
+            
 </div>
   </div>
 
