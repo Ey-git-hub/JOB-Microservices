@@ -15,7 +15,7 @@ import { BarChart, Building2Icon, FishingRodIcon, FlagIcon, Folder, Home, Networ
 
 export function AdminSidebar() {
   return (
-    <Sidebar className="shadow-2xl font-mono  rounded-r-2xl overflow-hidden border-r mt-20">
+    <Sidebar  className="absolute shadow-2xl font-mono  rounded-r-2xl overflow-hidden border-r mt-13 ">
       <SidebarContent>
         <SidebarGroup>
             <SidebarGroupLabel>Overview</SidebarGroupLabel>
