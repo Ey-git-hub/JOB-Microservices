@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 import { auth } from "@/lib/auth/auth";
 import { Bell, Search } from "lucide-react";
 
@@ -27,22 +28,34 @@ export default async function AdminDashboard() {
               </div>
       
 </div>
- <div className="flex gap-3 ">
-   <div className="p-5 bg-[#121215] border border-slate-800/80 rounded-xl w-40">
-            <span className="text-sm font-medium text-slate-400">Total companies</span>
+ <div className="grid grid-cols-4 gap-3">
+   <div className="p-5 bg-[#121215] border border-slate-800/80 rounded-xl min-h-[40px]">
+            <span className=" text-sm font-medium text-slate-400">Total companies</span>
             <p className="text-3xl font-bold text-white tracking-tight">482</p>
           </div>      
-          <div className="bg-[#121215] w-40 rounded-xl p-5">
+          <div className="bg-[#121215] min-h-[40px] rounded-xl p-5">
             <span className="text-sm font-medium text-slate-400">Pending Verification</span>
             <p className="text-3xl font-bold text-white tracking-tight text-slate-400">17</p>
             </div>   
-            <div className="bg-[#121215] p-5 rounded-xl">
+            <div className="bg-[#121215] min-h-[40px] p-5 rounded-xl">
               <span className="text-slate-400 mb-5 ">Active Users</span>
               <p className="text-white text-3xl font-bold tracking-tight">8,8787</p>
             </div>
-            <div className="bg-[#121215] p-5 rounded-xl">
+            <div className="bg-[#121215] min-h-[40px] p-5 rounded-xl">
               <span className="text-sm font-medium  text-slate-400">Open Reports</span>
               <p className="font-bold text-3xl text-white">3</p>
+            </div>
+            <div className="grid bg-[#121215] h-75 p-5 rounded-xl col-span-3 gap-y-1 ">
+            <span className="text-slate-400 font-medium">Pending company verification</span>
+            <Separator/>
+            <span className="text-slate-400 font-medium ">Nexora Technologies</span>
+             <Separator/>
+             <span className="text-slate-400 font-medium ">Pending company verification</span>
+            <Separator/>
+            <span className="text-slate-400 font-medium ">Nexora Technologies</span>
+            </div>
+            <div className="bg-[#121215] rounded-xl">
+
             </div>
 </div>
   </div>

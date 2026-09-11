@@ -7,7 +7,7 @@ export default async function Navbar() {
   const session = await auth();
 
   return (
-    <div className="flex flex-row font-mono bg-white h-8 w-extend mt-3 justify-between px-3">
+    <div className="relative flex flex-row font-mono bg-white h-8 w-extend mt-3 justify-between px-3">
       <div className="flex flex-col-2 gap-4">
         <Link href="/">
           <Button>
