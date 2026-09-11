@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { auth } from "@/lib/auth/auth";
 
@@ -26,16 +26,33 @@ export default async function AdminDashboard() {
         </div> */}
       {/* </div> */}
       
-        <div className="flex gap-2 mt-3">
-      <Badge className="w-73 h-5  ">Add New Company</Badge>
-      <Badge className="w-73 h-5 ml-3">Company List</Badge>
-      <Badge className="w-73 h-5 ml-3">Edit Admin Info</Badge>
-      </div>
-      
-     <div className="flex flex-row gap-5 mt-2 h-40 ">
-  <Card className="w-73 shadow-xl" />
-  <Card className="w-73 shadow-xl" />
-  <Card className="w-73 shadow-xl" />
+       
+     <div className="flex flex-row gap-5 mt-3 h-40 ">
+  <Card className="w-73 shadow-xl" >
+    <CardHeader>
+      <Badge className="w-65 h-7  ">Add New Company</Badge>
+      <CardTitle>
+
+      </CardTitle>
+    </CardHeader>
+  </Card>
+  <Card className="w-73 shadow-xl" >
+    <CardHeader>
+      <Badge className="w-65 h-7  ">Company List</Badge>
+      <CardTitle>
+
+      </CardTitle>
+    </CardHeader>
+  </Card>
+  <Card className="w-73 shadow-xl" >
+    <CardHeader>
+      <Badge className="w-65 h-7  ">Edit Admin Info</Badge>
+      <CardTitle>
+
+      </CardTitle>
+    </CardHeader>
+  </Card>
+
 </div>
 
 </div>
