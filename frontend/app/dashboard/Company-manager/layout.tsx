@@ -1,7 +1,8 @@
 import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
-import { AppSidebar } from "@/components/app-sidebar";
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { CompanySidebar } from "@/components/companymanager-sidebar";
 
 export default async function CompanyManagerLayout({
   children,
@@ -17,7 +18,7 @@ export default async function CompanyManagerLayout({
 
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <CompanySidebar />
       <main className="flex-1">
         <div className="flex h-12 items-center border-b px-4">
           <SidebarTrigger />
