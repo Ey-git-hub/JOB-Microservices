@@ -25,9 +25,9 @@ export default async function SignInPage({
                 <CardContent>
                                         <form action={authenticate}>
                         <Label className="font-mono mb-1">Email</Label>
-                                                <Input className="mb-2" name="email" type="email" placeholder="eyob@gmail.com" autoComplete="email" required/>
+                                                <Input className="mb-2" name="email" type="email" placeholder="eyob@gmail.com" autoComplete="off" required/>
                         <Label className="font-mono mb-1">Password</Label>
-                                                <Input className="mb-2" name="password" type="password" autoComplete="current-password" minLength={8} required/>
+                                                <Input className="mb-2" name="password" type="password" autoComplete="off" minLength={8} required/>
                                                 {error && (
                                                     <p className="mb-2 text-sm text-red-600">Invalid email or password.</p>
                                                 )}
