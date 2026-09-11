@@ -6,13 +6,13 @@ type KeycloakTokenResponse = {
 };
 
 type KeycloakClaims = {
-  realm_access?: {
+  realm_access?: {  
     roles?: string[];
   };
   email?: string;
   preferred_username?: string;
   name?: string;
-};
+};  
 
 function decodeTokenClaims(token: string): KeycloakClaims {
   const payload = token.split(".")[1];
