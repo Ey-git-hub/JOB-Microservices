@@ -3,7 +3,11 @@ spring:
     name: jobms
   config:
     import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8080/realms/Job Application"
   datasource:
     url: ${JMS_DATABASE_URL}
     username: ${JMS_DATABASE_USERNAME}
