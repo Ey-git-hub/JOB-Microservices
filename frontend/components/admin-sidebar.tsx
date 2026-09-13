@@ -1,73 +1,82 @@
 "use client";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import {
-  Home, Building2Icon, VerifiedIcon, Users, FlagIcon, BarChart,
-  SquareArrowOutDownRightIcon, Settings,
-} from "lucide-react";
-import {
-  Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
-  SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem,
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { BarChart, Building2Icon, FlagIcon, Home, Settings, SquareArrowOutDownRightIcon, Users, VerifiedIcon } from "lucide-react";
 
 const overviewItems = [
-  { href: "/dashboard", label: "Dashboard", icon: Home },
-  { href: "/dashboard/companies", label: "Companies", icon: Building2Icon },
-  { href: "/dashboard/verification", label: "Verification", icon: VerifiedIcon },
-  { href: "/dashboard/users", label: "Users", icon: Users },
-  { href: "/dashboard/reports", label: "Reports", icon: FlagIcon },
-  { href: "/dashboard/analytics", label: "Analytics", icon: BarChart },
+  { label: "Dashboard", href: "/dashboard/admin", icon: Home },
+  { label: "Companies", href: "/dashboard/admin/companies", icon: Building2Icon },
+  { label: "Verification", href: "/dashboard/admin/verification", icon: VerifiedIcon },
+  { label: "Users", href: "/dashboard/admin/users", icon: Users },
+  { label: "Reports", href: "/dashboard/admin/reports", icon: FlagIcon },
+  { label: "Analytics", href: "/dashboard/admin/analytics", icon: BarChart },
 ];
 
 const systemItems = [
-  { href: "/dashboard/audit-log", label: "Audit log", icon: SquareArrowOutDownRightIcon },
-  { href: "/dashboard/settings", label: "Settings", icon: Settings },
+  { label: "Audit Log", href: "/dashboard/admin/audit-log", icon: SquareArrowOutDownRightIcon },
+  { label: "Settings", href: "/dashboard/admin/settings", icon: Settings },
 ];
 
 export function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="absolute shadow-2xl font-mono rounded-r-2xl overflow-hidden border-r mt-13">
+    <Sidebar className="absolute mt-13 overflow-hidden rounded-r-2xl border-r font-mono shadow-2xl">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Overview</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="gap-3 mt-2">
-              {overviewItems.map(({ href, label, icon: Icon }) => (
-                <SidebarMenuItem key={href}>
-                  <SidebarMenuButton
-                    isActive={pathname === href}
-                    render={
-                      <Link href={href} className="flex flex-row items-center gap-2">
+            <SidebarMenu className="mt-2 gap-3">
+              {overviewItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = item.href === "/dashboard/admin"
+                  ? pathname === item.href
+                  : pathname.startsWith(item.href);
+
+                return (
+                  <SidebarMenuItem key={item.href}>
+                    <SidebarMenuButton
+                      isActive={isActive}
+                      render={<Link href={item.href} />}
+                    >
                         <Icon />
-                        <span>{label}</span>
-                      </Link>
-                    }
-                  />
-                </SidebarMenuItem>
-              ))}
+                        <span>{item.label}</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
         <SidebarGroup>
           <SidebarGroupLabel>System</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {systemItems.map(({ href, label, icon: Icon }) => (
-                <SidebarMenuItem key={href}>
-                  <SidebarMenuButton
-                    isActive={pathname === href}
-                    render={
-                      <Link href={href} className="flex flex-row items-center gap-2">
+              {systemItems.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <SidebarMenuItem key={item.href}>
+                    <SidebarMenuButton
+                      isActive={pathname.startsWith(item.href)}
+                      render={<Link href={item.href} />}
+                    >
                         <Icon />
-                        <span>{label}</span>
-                      </Link>
-                    }
-                  />
-                </SidebarMenuItem>
-              ))}
+                        <span>{item.label}</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
