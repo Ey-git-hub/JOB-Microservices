@@ -3,7 +3,11 @@ spring:
     name: companyms
   config:
     import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8080/realms/Job Application"
   
   datasource:
     url: ${CMS_DATABASE_URL}
@@ -20,7 +24,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
-  port: 8080
+  port: 8084
 #Rabbitmq
   rabbitmq:
     host: ${CMS_RABBITMQ_HOST}
