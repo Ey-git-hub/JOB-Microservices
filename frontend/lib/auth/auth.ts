@@ -69,6 +69,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: claims.email ?? email,
           name: claims.name ?? claims.preferred_username ?? email,
           roles: claims.realm_access?.roles ?? [],
+          accessToken: access_token,
         };
       },
     }),
@@ -77,12 +78,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.roles = (user.roles as string[]) ?? [];
+        token.accessToken = user.accessToken;
       }
 
       return token;
     },
     async session({ session, token }) {
       session.user.roles = (token.roles as string[]) ?? [];
+      session.accessToken = (token.accessToken as string) ?? "";
       return session;
     },
   },
