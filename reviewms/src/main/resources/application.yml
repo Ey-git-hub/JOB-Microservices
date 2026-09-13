@@ -3,7 +3,11 @@ spring:
     name: reviewms
   config:
     import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8080/realms/Job Application"
   datasource:
     url: ${RMS_DATABASE_URL}
     username: ${RMS_DATABASE_USERNAME}
