@@ -2,26 +2,26 @@ spring:
   application:
     name: jobms
   config:
-    import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
+    import: "optional:file:.env[.properties]" # Tells Spring Boot to import the .env file from the root directory
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: "http://localhost:8080/realms/Job Application"
+          issuer-uri: "http://localhost:8080/realms/Job%20Application"
+          jwk-set-uri: "http://localhost:8080/realms/Job%20Application/protocol/openid-connect/certs"
   datasource:
     url: ${JMS_DATABASE_URL}
     username: ${JMS_DATABASE_USERNAME}
     password: ${JMS_DATABASE_PASSWORD}
-  
+
   jpa:
     hibernate:
       ddl-auto: update
-    
+
     database-platform: org.hibernate.dialect.PostgreSQLDialect
- 
+
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8081
-   
