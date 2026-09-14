@@ -56,21 +56,21 @@ export default async function AdminSectionPage({
   const content = sections[section as AdminSection];
 
   return (
-    <div className="font-mono">
+    <div className="font-mono text-slate-900">
       <h1 className="text-3xl font-bold">{content.title}</h1>
       <p className="mt-4 text-slate-600">
         Welcome, <span className="font-semibold">{session?.user?.name}</span>
       </p>
       <p className="mt-2 text-slate-500">{content.description}</p>
 
-      <div className="mt-8 overflow-hidden rounded-xl bg-[#121215]">
+      <div className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         {content.items.map((item, index) => (
           <div
-            className="flex items-center justify-between border-b border-slate-800 p-5 text-slate-200 last:border-b-0"
+            className="flex items-center justify-between border-b border-slate-200 p-5 text-slate-700 last:border-b-0"
             key={item}
           >
             <span>{item}</span>
-            <span className="text-sm text-slate-500">{index + 1}</span>
+            <span className="text-sm text-primary">{index + 1}</span>
           </div>
         ))}
       </div>
