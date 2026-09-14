@@ -4,7 +4,7 @@ export default async function UserDashboard() {
   const session = await auth();
 
   return (
-    <div className="font-mono">
+    <div className="font-mono text-slate-900">
       <h1 className="text-3xl font-bold">User Dashboard</h1>
       <p className="mt-4 text-slate-600">
         Welcome, <span className="font-semibold">{session?.user?.name}</span>
