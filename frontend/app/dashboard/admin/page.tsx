@@ -11,7 +11,7 @@ export default async function AdminDashboard() {
   const session = await auth();
 
   return (
-    <div className="font-mono">
+    <div className="font-mono text-slate-900">
       <div className="flex items-center  justify-between ">
         <div>
                <h1 className="text-3xl font-bold">Super Admin Dashboard</h1>
@@ -21,7 +21,7 @@ export default async function AdminDashboard() {
                 </div>
             <div className="flex gap-3 mb-16 w-72">
               <Searchbar/>
-              <Button className="p-2 rounded-lg bg-white border border-gray-200 text-slate-400 hover:text-blue  transition-colors relative">
+              <Button variant="outline" className="relative border-slate-200 bg-white p-2 text-slate-500 transition-colors hover:border-primary hover:text-primary">
               <Bell className="w-4 h-4" />
               
             </Button>
@@ -29,36 +29,36 @@ export default async function AdminDashboard() {
       
 </div>
  <div className="grid grid-cols-4 gap-3">
-   <div className="p-5 bg-[#121215] border border-slate-800/80 rounded-xl min-h-[40px]">
-            <span className=" text-sm font-medium text-slate-400">Total companies</span>
-            <p className="text-3xl font-bold text-white tracking-tight">482</p>
+  <div className="min-h-[40px] rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <span className="text-sm font-medium text-slate-500">Total companies</span>
+        <p className="text-3xl font-bold tracking-tight text-slate-900">482</p>
           </div>      
-          <div className="bg-[#121215] min-h-[40px] rounded-xl p-5">
-            <span className="text-sm font-medium text-slate-400">Pending Verification</span>
-            <p className="text-3xl font-bold text-white tracking-tight text-slate-400">17</p>
+          <div className="min-h-[40px] rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <span className="text-sm font-medium text-slate-500">Pending Verification</span>
+            <p className="text-3xl font-bold tracking-tight text-slate-900">17</p>
             </div>   
-            <div className="bg-[#121215] min-h-[40px] p-5 rounded-xl">
-              <span className="text-slate-400 mb-5 ">Active Users</span>
-              <p className="text-white text-3xl font-bold tracking-tight">8,8787</p>
+            <div className="min-h-[40px] rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <span className="mb-5 text-slate-500">Active Users</span>
+              <p className="text-3xl font-bold tracking-tight text-slate-900">8,8787</p>
             </div>
-            <div className="bg-[#121215] min-h-[40px] p-5 rounded-xl">
-              <span className="text-sm font-medium  text-slate-400">Open Reports</span>
-              <p className="font-bold text-3xl text-white">3</p>
+            <div className="min-h-[40px] rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <span className="text-sm font-medium text-slate-500">Open Reports</span>
+              <p className="text-3xl font-bold text-slate-900">3</p>
             </div>
-            <div className="grid bg-[#121215] h-75 p-5 rounded-xl col-span-3 gap-y-1 ">
+            <div className="col-span-3 grid h-75 gap-y-1 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex items-center justify-between">
-              <span className="text-slate-400 font-medium">Pending company verification</span>
-              <Button>View All</Button>
+              <span className="font-medium text-slate-700">Pending company verification</span>
+              <Button variant="outline">View All</Button>
             </div>
             <Separator/>
-            <span className="text-slate-400 font-medium ">koket Technologies</span>
+            <span className="font-medium text-slate-600">koket Technologies</span>
              <Separator/>
-             <span className="text-slate-400 font-medium ">messi solutions</span>
+             <span className="font-medium text-slate-600">messi solutions</span>
             <Separator/>
-            <span className="text-slate-400 font-medium ">tade tech</span>
+             <span className="font-medium text-slate-600">tade tech</span>
             </div>
-            <div className="grid p-5 bg-[#121215] rounded-xl">
-           <span className="text-white">Quick Actions</span>
+            <div className="grid rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+           <span className="text-slate-900">Quick Actions</span>
            <Button><Plus/> Add new Company </Button>
            <Button><Plus/> Manage Users </Button>
            <Button><Plus/> Add new Company </Button>
