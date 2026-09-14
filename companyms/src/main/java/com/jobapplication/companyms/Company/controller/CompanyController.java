@@ -1,4 +1,5 @@
 package com.jobapplication.companyms.Company.controller;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,45 +19,53 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("api/v1/companies")
 @RequiredArgsConstructor
 public class CompanyController {
- private final CompanyServiceImpl companyServiceImpl;
-  @GetMapping
-  public ResponseEntity<List<CompanyResponse>> getAllComapnies() {
-    return ResponseEntity.ok(companyServiceImpl.getAllCompanies());
-  }
-  @PutMapping("/update/{id}")
-  public ResponseEntity<String> updateCompany(@PathVariable Long id, @RequestBody CompanyRequest companyRequest) {
-    boolean isUpdated = companyServiceImpl.updateCompany(id, companyRequest);
-    if (isUpdated) {
-        return ResponseEntity.ok("Company updated successfully.");
-    } else {
-        return ResponseEntity.notFound().build();
+    private final CompanyServiceImpl companyServiceImpl;
+
+    @GetMapping
+    public ResponseEntity<List<CompanyResponse>> getAllComapnies() {
+        return ResponseEntity.ok(companyServiceImpl.getAllCompanies());
     }
-  }
-  @PostMapping("/create")
-  public ResponseEntity<String> createCompany(@RequestBody CompanyRequest companyRequest) {
-    companyServiceImpl.createCompany(companyRequest);
-    return ResponseEntity.ok("Company created successfully.");
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Map<String, String>> updateCompany(@PathVariable Long id,
+            @RequestBody CompanyRequest companyRequest) {
+        boolean isUpdated = companyServiceImpl.updateCompany(id, companyRequest);
+        if (isUpdated) {
+            return ResponseEntity.ok(Map.of("message", "Company updated successfully."));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Map<String, String>> createCompany(@RequestBody CompanyRequest companyRequest) {
+        companyServiceImpl.createCompany(companyRequest);
+        return ResponseEntity.ok(Map.of("message", "Company created successfully."));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteCompany(@PathVariable Long id) {
+        boolean isDeleted = companyServiceImpl.deleteCompany(id);
+        if (isDeleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CompanyResponse> getCompanyById(@PathVariable Long id) {
+        CompanyResponse companyResponse = companyServiceImpl.getCompanyById(id);
+        if (companyResponse != null) {
+            return ResponseEntity.ok(companyResponse);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
-@DeleteMapping("/delete/{id}")
-public ResponseEntity<Void> deleteCompany(@PathVariable Long id) {
-    boolean isDeleted = companyServiceImpl.deleteCompany(id);
-    if (isDeleted) {
-        return ResponseEntity.noContent().build();
-    } else {
-        return ResponseEntity.notFound().build();
-    }
-}
-@GetMapping("/{id}")
-public ResponseEntity<CompanyResponse> getCompanyById(@PathVariable Long id) {
-    CompanyResponse companyResponse = companyServiceImpl.getCompanyById(id);
-    if (companyResponse != null) {
-        return ResponseEntity.ok(companyResponse);
-    } else {
-        return ResponseEntity.notFound().build();
-    }
-}}
