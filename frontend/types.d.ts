@@ -4,6 +4,8 @@
     interface User {
       roles: string[];
       accessToken: string;
+      refreshToken: string;
+      accessTokenExpiresAt: number;
     }
 
     interface Session {
@@ -18,6 +20,8 @@
     interface JWT extends DefaultJWT {
       roles: string[];
       accessToken: string;
+      refreshToken: string;
+      accessTokenExpiresAt: number;
     }
   }
 
