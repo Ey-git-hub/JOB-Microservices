@@ -1,5 +1,7 @@
 import { auth } from "@/lib/auth/auth";
+import { BackendError, getCompaniesDirect } from "@/lib/api/backend";
 import { notFound } from "next/navigation";
+import { CompanyManager } from "./company-manager";
 
 const sections = {
   companies: {
@@ -41,19 +43,44 @@ const sections = {
 
 type AdminSection = keyof typeof sections;
 
+type Company = {
+  id: number;
+  name: string;
+  location: string;
+  description: string;
+};
+
 export default async function AdminSectionPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ section: string }>;
+  searchParams: Promise<{ message?: string }>;
 }) {
   const session = await auth();
   const { section } = await params;
+  const { message } = await searchParams;
 
   if (!Object.hasOwn(sections, section)) {
     notFound();
   }
 
   const content = sections[section as AdminSection];
+  let items: readonly string[] = content.items;
+  let companies: Company[] = [];
+  let companyError: string | null = null;
+
+  if (section === "companies") {
+    try {
+      const fetchedCompanies = await getCompaniesDirect<Company[]>();
+      items = fetchedCompanies.map((company) => company.name);
+      companies = fetchedCompanies;
+    } catch (error) {
+      companyError = error instanceof BackendError
+        ? error.message
+        : "Company service is unavailable";
+    }
+  }
 
   return (
     <div className="font-mono text-slate-900">
@@ -63,17 +90,35 @@ export default async function AdminSectionPage({
       </p>
       <p className="mt-2 text-slate-500">{content.description}</p>
 
-      <div className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-        {content.items.map((item, index) => (
-          <div
-            className="flex items-center justify-between border-b border-slate-200 p-5 text-slate-700 last:border-b-0"
-            key={item}
-          >
-            <span>{item}</span>
-            <span className="text-sm text-primary">{index + 1}</span>
-          </div>
-        ))}
-      </div>
+      {section === "companies" && message && (
+        <p className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-emerald-800">
+          {message}
+        </p>
+      )}
+
+      {section === "companies" && !companyError && (
+        <CompanyManager companies={companies} />
+      )}
+
+      {companyError && (
+        <p className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-800">
+          Could not load companies directly from companyms: {companyError}
+        </p>
+      )}
+
+      {section !== "companies" && (
+        <div className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          {items.map((item, index) => (
+            <div
+              className="flex items-center justify-between border-b border-slate-200 p-5 text-slate-700 last:border-b-0"
+              key={item}
+            >
+              <span>{item}</span>
+              <span className="text-sm text-primary">{index + 1}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
