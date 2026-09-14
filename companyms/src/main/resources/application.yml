@@ -2,33 +2,34 @@ spring:
   application:
     name: companyms
   config:
-    import: "optional:file:.env[.properties]"  # Tells Spring Boot to import the .env file from the root directory
+    import: "optional:file:.env[.properties]" # Tells Spring Boot to import the .env file from the root directory
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: "http://localhost:8080/realms/Job Application"
-  
+          issuer-uri: "http://localhost:8080/realms/Job%20Application"
+          jwk-set-uri: "http://localhost:8080/realms/Job%20Application/protocol/openid-connect/certs"
+
   datasource:
     url: ${CMS_DATABASE_URL}
     username: ${CMS_DATABASE_USERNAME}
     password: ${CMS_DATABASE_PASSWORD}
-  
+
   jpa:
     hibernate:
       ddl-auto: update
-    
+
     database-platform: org.hibernate.dialect.PostgreSQLDialect
- 
+
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8084
 #Rabbitmq
-  rabbitmq:
-    host: ${CMS_RABBITMQ_HOST}
-    port: ${CMS_RABBITMQ_PORT}
-    username: ${CMS_RABBITMQ_USERNAME}
-    password: ${CMS_RABBITMQ_PASSWORD}
+# rabbitmq:
+#   host: ${CMS_RABBITMQ_HOST}
+#   port: ${CMS_RABBITMQ_PORT}
+#   username: ${CMS_RABBITMQ_USERNAME}
+#   password: ${CMS_RABBITMQ_PASSWORD}
 
