@@ -31,7 +31,7 @@ export function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="absolute mt-13 overflow-hidden rounded-r-2xl border-r font-mono shadow-2xl">
+    <Sidebar className="absolute mt-13 overflow-hidden rounded-r-2xl border-r border-slate-200 bg-white font-mono text-slate-700 shadow-xl">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Overview</SidebarGroupLabel>
