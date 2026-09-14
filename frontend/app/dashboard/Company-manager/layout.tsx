@@ -19,8 +19,8 @@ export default async function CompanyManagerLayout({
   return (
     <SidebarProvider>
       <CompanySidebar />
-      <main className="flex-1">
-        <div className="flex h-12 items-center border-b px-4">
+      <main className="flex-1 bg-white text-slate-900">
+        <div className="flex h-12 items-center border-b border-slate-200 bg-white px-4">
           <SidebarTrigger />
         </div>
         <div className="p-6">{children}</div>
