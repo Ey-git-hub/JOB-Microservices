@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth/auth";
-import { BackendError, getCompaniesDirect } from "@/lib/api/backend";
+import { BackendError, getCompanies } from "@/lib/api/backend";
 import { notFound } from "next/navigation";
 import { CompanyManager } from "./company-manager";
 
@@ -72,7 +72,7 @@ export default async function AdminSectionPage({
 
   if (section === "companies") {
     try {
-      const fetchedCompanies = await getCompaniesDirect<Company[]>();
+      const fetchedCompanies = await getCompanies<Company[]>();
       items = fetchedCompanies.map((company) => company.name);
       companies = fetchedCompanies;
     } catch (error) {
@@ -102,7 +102,7 @@ export default async function AdminSectionPage({
 
       {companyError && (
         <p className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-800">
-          Could not load companies directly from companyms: {companyError}
+          Could not load companies: {companyError}
         </p>
       )}
 
