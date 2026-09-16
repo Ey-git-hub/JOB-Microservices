@@ -83,6 +83,34 @@ services:
       retries: 10
     restart: unless-stopped
 
+  # =========================================================================
+  # API Gateway — Single entry point for all frontend traffic
+  # =========================================================================
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: job-gateway
+    environment:
+      GATEWAY_PORT: "8090"
+      SERVICES_COMPANY_URL: "http://companyms:8084"
+      SERVICES_JOB_URL: "http://jobms:8081"
+      SERVICES_REVIEW_URL: "http://reviewms:8082"
+      KEYCLOAK_ISSUER_URI: "http://keycloak:8080/realms/Job%20Application"
+      KEYCLOAK_JWK_SET_URI: "http://keycloak:8080/realms/Job%20Application/protocol/openid-connect/certs"
+    ports:
+      - "${GATEWAY_PORT:-8090}:8090"
+    depends_on:
+      keycloak:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8090/actuator/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
 
 
 volumes:
