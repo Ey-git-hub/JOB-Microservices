@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: gateway
+  config:
+    import: "optional:file:../.env[.properties]"
+  threads:
+    virtual:
+      enabled: true
+
+  # Enterprise OAuth2 Resource Server — JWT validation against Keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/Job%20Application}"
+          jwk-set-uri: "${KEYCLOAK_JWK_SET_URI:http://localhost:8080/realms/Job%20Application/protocol/openid-connect/certs}"
+
+server:
+  port: ${GATEWAY_PORT:8090}
+  forward-headers-strategy: framework
+  shutdown: graceful
+
+# Spring Boot Actuator — Observability & Container Health Probes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics"
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+# Enterprise API Gateway Configuration
+gateway:
+  services:
+    company-url: "${SERVICES_COMPANY_URL:http://localhost:8084}"
+    job-url: "${SERVICES_JOB_URL:http://localhost:8081}"
+    review-url: "${SERVICES_REVIEW_URL:http://localhost:8082}"
+  cors:
+    allowed-origins:
+      - "http://localhost:3000"
+      - "http://127.0.0.1:3000"
+  rate-limit:
+    enabled: true
+    replenish-rate: 100
+    burst-capacity: 200
+  security:
+    public-reads-enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.jobapplication.gateway: DEBUG
+    org.springframework.security: INFO
+    org.springframework.cloud.gateway: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [correlationId=%X{correlationId:-none}] - %msg%n"
